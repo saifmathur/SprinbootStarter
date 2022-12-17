@@ -1,6 +1,5 @@
 package io.javabrains.sprinbootstarter.topic;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +31,16 @@ public class TopicController {
 	}
 	
 	
-	@RequestMapping(method=RequestMethod.POST, value="/topics")
+	/* ADD NEW TOPIC */
+	@RequestMapping(method=RequestMethod.POST, value="/addTopic")
 	public void addTopic(@RequestBody Topic topicInstanceFromRequestBody) {
 		topicService.addNewTopic(topicInstanceFromRequestBody);
 	}
-
+	
+	
+	/* ADD MULTIPLE TOPICS */
+	@RequestMapping(method=RequestMethod.POST, value="/addTopics")
+	public void addMultipleTopics(@RequestBody Topic[] topicArray) {
+		topicService.addMultipleTopics(topicArray);
+	}
 }

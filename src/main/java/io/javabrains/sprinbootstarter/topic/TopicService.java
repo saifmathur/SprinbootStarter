@@ -30,4 +30,15 @@ public class TopicService {
 	public void addNewTopic(Topic topic) {
 		topics.add(topic);
 	}
+	
+	
+	
+	  public void addMultipleTopics(Topic[] topicInstanceFromRequestBody) {
+		  for(Topic t : topicInstanceFromRequestBody) {
+			  topics.add(t);
+		  }
+	  }
+	 
+	
+	
 }
