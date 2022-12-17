@@ -48,5 +48,15 @@ public class TopicService {
 			  }
 		  }
 	  }
+
+
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		/*
+		 * for(int i=0; i<topics.size();i++) { Topic t = topics.get(i); if(t.getId() ==
+		 * id) { topics.remove(i); return "removed"; } } return null;
+		 */
+		topics.removeIf(t -> t.getId()==id);
+	}
 	
 }
