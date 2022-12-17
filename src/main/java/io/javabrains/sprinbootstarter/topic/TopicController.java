@@ -43,4 +43,14 @@ public class TopicController {
 	public void addMultipleTopics(@RequestBody Topic[] topicArray) {
 		topicService.addMultipleTopics(topicArray);
 	}
+	
+	
+	/* UPDATE TOPIC */
+	@RequestMapping(method=RequestMethod.PUT, value="/updateTopic/{id}")
+	public void updateTopic(@RequestBody Topic topic, @PathVariable int id) {
+		topicService.update(id, topic);
+	}
+	
+	
+	
 }
