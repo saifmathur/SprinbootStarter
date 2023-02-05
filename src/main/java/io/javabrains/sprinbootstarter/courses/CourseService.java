@@ -1,4 +1,4 @@
-package io.javabrains.sprinbootstarter.topic;
+package io.javabrains.sprinbootstarter.courses;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TopicService {
+public class CourseService {
 
 	@Autowired
-	public TopicRepository topicRepo;
+	public CourseRepository courseRepo;
 	
 	/*
 	 * private List<Topic> topics = new ArrayList<>(Arrays.asList( new
@@ -20,58 +20,50 @@ public class TopicService {
 	 * Topic(4,"Spring Framework","Description") ) );
 	 */
 	
-	public List<Topic> getAllTopics(){
+	public List<Course> getAllCourses(int topicId){
 		//return topics;
-		List<Topic> topics = new ArrayList<>();
-		topicRepo.findAll().forEach(topics::add);
-		return topics;
+		List<Course> courses = new ArrayList<>();
+		courseRepo.findByTopicId(topicId).forEach(courses::add);
+		return courses;
 	}
 	
 	
-	public Optional<Topic> getTopic(int id) {
+	public Optional<Course> getCourse(int id) {
 		//return topics.stream().filter(t -> t.getId()==id).findFirst().get();
-		return topicRepo.findById(id);
+		return courseRepo.findById(id);
 	}
 	
 	
-	public void addNewTopic(Topic topic) {
+	public void addNewcourse(Course course) {
 		//topics.add(topic);
-		topicRepo.save(topic);
+		courseRepo.save(course);
 	}
 	
 	
 	
-	  public void addMultipleTopics(Topic[] topicInstanceFromRequestBody) {
-		  for(Topic t : topicInstanceFromRequestBody) {
-			  topicRepo.save(t);
+	  public void addMultipleCourses(Course[] courseInstanceFromRequestBody) {
+		  for(Course c : courseInstanceFromRequestBody) {
+			  courseRepo.save(c);
 		  }
 	  }
 	 
-	  public void update(int idOdTopic, Topic newTopic) {
+	  public void updateCourse(Course newCourse) {
 			/*
 			 * for(int i=0; i<topics.size(); i++) { Topic t = topics.get(i); if(t.getId() ==
 			 * idOdTopic) { topics.set(i, newTopic); return; } }
 			 */
-		  topicRepo.save(newTopic);
+		  courseRepo.save(newCourse);
 	  }
 
 
-	public void delete(int id) {
+	public void deleteCourse(int id) {
 		// TODO Auto-generated method stub
 		/*
 		 * for(int i=0; i<topics.size();i++) { Topic t = topics.get(i); if(t.getId() ==
 		 * id) { topics.remove(i); return "removed"; } } return null;
 		 */
 		//topics.removeIf(t -> t.getId()==id);
-		topicRepo.deleteById(id);
+		courseRepo.deleteById(id);
 	}
 	
-	
-	public Topic getSpecific() {
-		return topicRepo.getSpecific();
-	}
-	
-	public List<Topic> search(String keyword) {    
-        return topicRepo.searchString(keyword);
-	}
 }

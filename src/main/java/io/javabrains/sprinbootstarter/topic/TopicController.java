@@ -1,6 +1,7 @@
 package io.javabrains.sprinbootstarter.topic;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +27,7 @@ public class TopicController {
 	
 	/* GET BY ID */
 	@RequestMapping("/getTopic/{id}")
-	public Topic getTopic(@PathVariable int id) {
+	public Optional<Topic> getTopic(@PathVariable int id) {
 		return topicService.getTopic(id);
 	}
 	
@@ -56,5 +57,20 @@ public class TopicController {
 	public void deleteTopic(@PathVariable int id) {
 		topicService.delete(id);
 	}
+	
+	
+	@RequestMapping("/getSpecific")
+	public Topic getSpecific() {
+		return topicService.getSpecific();
+	}
+	
+	
+	@RequestMapping("/searchTopic/{searchString}")
+	public List<Topic> searchTopic(@PathVariable String searchString){
+		return topicService.search(searchString);
+	}
+	
+	
+	
 	
 }
