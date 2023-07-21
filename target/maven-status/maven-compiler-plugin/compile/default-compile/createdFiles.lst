@@ -1,6 +1,10 @@
 io\javabrains\sprinbootstarter\CourseApp.class
+io\javabrains\sprinbootstarter\courses\Course.class
 io\javabrains\sprinbootstarter\hello\HelloController.class
+io\javabrains\sprinbootstarter\courses\CourseController.class
 io\javabrains\sprinbootstarter\topic\TopicRepository.class
+io\javabrains\sprinbootstarter\courses\CourseRepository.class
 io\javabrains\sprinbootstarter\topic\TopicController.class
 io\javabrains\sprinbootstarter\topic\TopicService.class
 io\javabrains\sprinbootstarter\topic\Topic.class
+io\javabrains\sprinbootstarter\courses\CourseService.class
